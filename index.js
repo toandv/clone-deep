@@ -9,7 +9,9 @@ const typeOf = require('kind-of');
 const isPlainObject = require('is-plain-object');
 const isSubset = require('is-subset');
 
-function cloneDeep(val, filter, instanceClone = true, pkey = '') {
+const defaultFilter = {}
+
+function cloneDeep(val, filter = defaultFilter, instanceClone = true, pkey = '') {
   switch (typeOf(val)) {
     case 'object':
       return cloneObjectDeep(val, filter, instanceClone, pkey);
